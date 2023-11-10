@@ -9,7 +9,7 @@ export const ButtonStyle = css`
   box-sizing: border-box;
   display: inline-flex;
   font-size: 1.2rem;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem .75rem;
   svg {
     margin: 0 8px 0 0;
     height: 1.4rem;
