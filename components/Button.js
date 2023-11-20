@@ -8,8 +8,14 @@ export const ButtonStyle = css`
   margin: 0.5rem 0;
   box-sizing: border-box;
   display: inline-flex;
+  align-items: center;
   font-size: 1.2rem;
-  padding: 0.5rem .75rem;
+  padding: 0.5rem 0.75rem;
+  font-family: "Poppins", sans-serif;
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+  &:hover {
+    transform: scale(1.1); /* Scale up by 10% on hover */
+  }
   svg {
     margin: 0 8px 0 0;
     height: 1.4rem;
@@ -23,19 +29,44 @@ export const ButtonStyle = css`
     `}
   ${(props) =>
     props.white &&
-    props.outline === 1 &&
+    props.outline &&
     css`
       background-color: transparent;
       color: #fff;
       border: 1px solid #fff;
     `}
+    ${(props) =>
+    props.black &&
+    !props.outline &&
+    css`
+      background-color: #000;
+      color: #fff;
+    `}
+    ${(props) =>
+    props.black &&
+    props.outline &&
+    css`
+      background-color: transparent;
+      color: #000;
+      border: 1px solid #000;
+    `}
 ${(props) =>
     props.primary &&
     css`
-      background-color: rgb(59 130 246);
+      background-color: #3b82f6;
       color: rgb(255 255 255);
+      &:hover {
+        background-color: #2563eb;
+      }
     `}
-  `;
+
+    ${(props) =>
+    props.block &&
+    css`
+      display: block;
+      width: 100%;
+    `}
+`;
 
 const StyledButton = styled.button`
   ${ButtonStyle}

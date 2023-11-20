@@ -1,19 +1,22 @@
 import { createGlobalStyle } from "styled-components";
+import "../styles/globals.css";
+import CartContextProvider from "@/components/CartContext";
 
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Dancing+Script:wght@700&family=Open+Sans:wght@700&family=PT+Serif:wght@700&family=Roboto:ital@1&display=swap');
 body{
   background-color: #EEE;
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }`;
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyles />
+      <CartContextProvider>
         <Component {...pageProps} />
+      </CartContextProvider>
     </>
   );
 }
